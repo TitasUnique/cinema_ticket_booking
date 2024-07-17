@@ -1,0 +1,12 @@
+.m-main-div {
+    max-width: 100%;
+    background-color: rgb(40, 40, 43);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 80px;
+}
+
+.m-left, .m-right {
+    border: 2px solid white;
+}
