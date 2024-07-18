@@ -7,6 +7,50 @@
     padding: 20px 80px;
 }
 
-.m-left, .m-right {
+/* .m-left, .m-right {
     border: 2px solid white;
+} */
+
+.m-left {
+    width: 25%;
+}
+
+.m-right {
+    width: 75%;
+}
+
+.cards-arena {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 5vw 0vw;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    width: 220px;
+    overflow: hidden;
+    gap: 1vw;
+}
+
+.images {
+    align-self: center;
+    width: 220px;
+    height: 300px;
+}
+
+.name {
+    align-self: flex-start;
+    font-size: 1.5vw;
+    font-family: arial;
+}
+
+.timmings {
+    align-self: flex-start;
+    font-family: arial;
 }

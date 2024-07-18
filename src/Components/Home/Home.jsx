@@ -11,6 +11,7 @@ const Home = () => {
       autoPlay
       interval={2000}
       infiniteLoop
+      // preventMovementUntilSwipeScrollTolerance
       className="carousel"
     >
       <div style={{ marginLeft: "10px", marginRight: "10px" , borderRadius: "10px" }}>
@@ -24,6 +25,9 @@ const Home = () => {
       </div>
       <div style={{ marginLeft: "10px", marginRight: "10px" , borderRadius: "10px" }}>
         <img src="https://assetscdn1.paytm.com/images/catalog/view_item/2753955/1720722785013.jpg?format=webp&imwidth=1750" />
+      </div>
+      <div style={{ marginLeft: "10px", marginRight: "10px" , borderRadius: "10px" }}>
+        <img src="https://assets-in.bmscdn.com/promotions/cms/creatives/1720596235855_thegarfieldmovieweb.jpg" />
       </div>
     </Carousel>
     </div>

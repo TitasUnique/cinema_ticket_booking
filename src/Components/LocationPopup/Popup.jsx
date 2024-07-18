@@ -36,6 +36,10 @@ const Popup = ({ onClose }) => {
         type:"selectedCity",
         payload: selectedCity
       })
+      dispatch({
+        type:"selectedTheatre",
+        payload: selectedTheatre
+      })
       // console.log(selectedCity);
       onClose();
     } else {
