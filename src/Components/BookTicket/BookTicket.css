@@ -1,0 +1,28 @@
+.book-ticket-container {
+    text-align: center;
+  }
+  
+  .book-ticket-container img {
+    width: 200px;
+    height: auto;
+    margin: 10px 0;
+  }
+  
+  .trailer {
+    margin: 20px 0;
+  }
+  
+  .rating {
+    margin: 10px 0;
+  }
+  
+  .availability {
+    margin: 10px 0;
+  }
+  
+  .book-seat-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

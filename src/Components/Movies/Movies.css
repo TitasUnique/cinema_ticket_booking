@@ -45,6 +45,7 @@
 }
 
 .name {
+    position: absolute;
     align-self: flex-start;
     font-size: 1.5vw;
     font-family: arial;
@@ -53,4 +54,8 @@
 .timmings {
     align-self: flex-start;
     font-family: arial;
+}
+
+.ui-btn {
+    align-self: flex;
 }
