@@ -12,12 +12,12 @@ const LandingPage = () => {
   };
 
   return (
-    <>
+    <div className='demo' style={{position:'relative'}}>
       {showPopup && <LocationPopup onClose={handleClosePopup} />}
       <Navbar />
       <Home />
       <Movies />
-    </>
+    </div>
   );
 };
 

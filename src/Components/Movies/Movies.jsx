@@ -3,6 +3,7 @@ import './Movies.css';
 import { useSelector } from 'react-redux';
 import data from "../../Location_Data/MoviesData";
 import { useNavigate } from "react-router-dom";
+import Button1 from '../SharedElements/Button1';
 
 const Movies = () => {
     const navigate = useNavigate();
@@ -18,24 +19,26 @@ const Movies = () => {
         } else {
             moviesset([]);
         }
-    }, [city])
+    }, [city,theatre])
 
-    const handelBookTicketClicked = (movieName) => {
-        navigate("/bookSeat", { state: { data: movieName } });
+    const handelBookTicketClicked = (movieName, moviePoster, movietimming, movietrailer, movierating, moviedetails, moviebookedSeats) => {
+        navigate("/bookSeat", { state: { name: movieName, poster: moviePoster, timming: movietimming, trailer: movietrailer, rating: movierating, details: moviedetails, seats: moviebookedSeats } });
     };
 
     return (
         <div className="m-main-div">
-            <div className="m-left">Upcoming Movies</div>
+            <div className="m-left">current theatre is {theatre}</div>
             <div className="m-right">
                 <h1>Movies in {city}</h1>
                 <div className="cards-arena">
                     {movies.map((card, index) => (
                         <div className='cards' key={index}>
                             <img className="images" src={card.poster} alt="#" />
-                            <div className="name">{card.name}</div>
-                            <div className="timmings">{card.timming}</div>
-                            <button className="ui-btn" onClick={() => handelBookTicketClicked(card.name)}>Book Seats</button>
+                            <div className="img-hover">
+                                <div className="name">{card.name}</div>
+                                <div className="timmings">{card.timming}</div>
+                            </div>
+                            <Button1 handelClick={() => handelBookTicketClicked(card.name, card.poster, card.timming, card.trailer, card.rating, card.details, card.bookedSeats)} />
                         </div>
                     ))}
                 </div>
