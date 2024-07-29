@@ -115,6 +115,17 @@
   padding: 20px;
 }
 
+.available-select-seat {
+  background-color: rgb(121 234 105 / 36%);
+  border: 1px solid black;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.select-seat {
+  background-color: rgba(52, 241, 27, 0.884);
+}
+
 .booked-seat:hover , .available-seat:hover {
   cursor: pointer;
 }

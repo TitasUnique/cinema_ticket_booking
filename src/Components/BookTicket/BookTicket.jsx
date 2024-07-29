@@ -1,24 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './BookTicket.css'
 import { useLocation } from "react-router-dom";
 import Button2 from '../SharedElements/Button2';
 import screen from "../../Assests/Images/screen.png";
 import seat from "../../Assests/Images/seat.png";
+import { useSelector, useDispatch } from 'react-redux';
 
 const BookTicket = () => {
+
+  const [SeatSelectState, setSeatSelectState] = useState();
+
+  const dispatch = useDispatch();
+
   const location = useLocation();
-  const { poster, timming, trailer, rating, details, seats } = location.state || {};
+  const { poster, timming, trailer, rating, details } = location.state || {};
+
+  const BookedSeats = useSelector((state) => state.movieBookSeat);
 
   const handelclick = () => {
-    console.log("cicked");
-    console.log(seats);
+    if (SeatSelectState){
+      {
+        BookedSeats.map((row) => {
+          {
+            row.map((cell) => (
+              cell.seatId === SeatSelectState ? cell.booked = true : cell.booked = cell.booked
+            ))
+          }
+        })
+      }
+      dispatch({
+        type: "seatBookdetails",
+        payload: BookedSeats
+      })
+      setSeatSelectState();
+      let x = generateRandomString();
+      confirm(`Your seat no. - ${SeatSelectState} is booked & the ticket ID is - ${x} \nPlease screenshot this ID & show it to the theatre entry point.`);
+    }
+    else {
+      window.alert("Please select seat first !!!");
+    }
+    
   }
 
   const handelCellclick = (cell) => {
-    console.log(cell);
-    console.log(generateRandomString());
-    let x = generateRandomString();
-    confirm(`Your seat is booked & the ticket ID is - ${x}`);
+    setSeatSelectState(cell);
   };
 
   const showerror = (cell) => {
@@ -26,7 +51,7 @@ const BookTicket = () => {
   };
 
   function generateRandomString(length = 8) {
-    const characters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&";
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&";
     let result = "";
     const charactersLength = characters.length;
     for (let i = 0; i < length; i++) {
@@ -54,10 +79,10 @@ const BookTicket = () => {
           <div className="bookSeats">
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <tbody>
-                {seats.map((row, rowIndex) => (
+                {BookedSeats.map((row, rowIndex) => (
                   <tr key={rowIndex}>
                     {row.map((cell, cellIndex) => (
-                      <td key={cellIndex} className={cell.booked ? 'booked-seat' : 'available-seat'}
+                      <td key={cellIndex} className={cell.booked ? 'booked-seat' : cell.seatId === SeatSelectState ? 'available-select-seat select-seat' : 'available-seat'}
                         onClick={() => {
                           cell.booked ? showerror(cell.seatId) : handelCellclick(cell.seatId);
                         }}>

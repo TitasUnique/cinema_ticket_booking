@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Movies.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import data from "../../Location_Data/MoviesData";
 import { useNavigate } from "react-router-dom";
 import Button1 from '../SharedElements/Button1';
 
 const Movies = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const city = useSelector((state) => state.storecity);
     const theatre = useSelector((state) => state.storetheatre);
@@ -22,7 +23,11 @@ const Movies = () => {
     }, [city,theatre])
 
     const handelBookTicketClicked = (movieName, moviePoster, movietimming, movietrailer, movierating, moviedetails, moviebookedSeats) => {
-        navigate("/bookSeat", { state: { name: movieName, poster: moviePoster, timming: movietimming, trailer: movietrailer, rating: movierating, details: moviedetails, seats: moviebookedSeats } });
+        dispatch({
+            type: "seatBookdetails",
+            payload: moviebookedSeats
+        })
+        navigate("/bookSeat", { state: { name: movieName, poster: moviePoster, timming: movietimming, trailer: movietrailer, rating: movierating, details: moviedetails } });
     };
 
     return (
