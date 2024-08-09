@@ -2,7 +2,7 @@ import React from 'react'
 import './Button1.css';
 const Button1 = ({handelClick}) => {
     return (
-        <button onClick={handelClick}>
+        <button className='button1' onClick={handelClick}>
             <span className="span-mother">
                 <span>B</span>
                 <span>o</span>

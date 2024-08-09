@@ -40,7 +40,6 @@ const Popup = ({ onClose }) => {
         type:"selectedTheatre",
         payload: selectedTheatre
       })
-      // console.log(selectedCity);
       onClose();
     } else {
       alert("Please fill all the fields");

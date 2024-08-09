@@ -7,6 +7,14 @@
     padding: 20px 80px;
 }
 
+.copyright {
+    padding-top: 2vw;
+    background-color: rgb(40, 40, 43);
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
 .m-left {
     width: 25%;
 }

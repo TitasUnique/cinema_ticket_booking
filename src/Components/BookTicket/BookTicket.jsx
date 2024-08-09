@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './BookTicket.css'
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import Button2 from '../SharedElements/Button2';
+import Button3 from '../SharedElements/Button3';
 import screen from "../../Assests/Images/screen.png";
 import seat from "../../Assests/Images/seat.png";
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,6 +12,7 @@ const BookTicket = () => {
   const [SeatSelectState, setSeatSelectState] = useState();
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const location = useLocation();
   const { poster, timming, trailer, rating, details } = location.state || {};
@@ -61,10 +63,15 @@ const BookTicket = () => {
     return result;
   }
 
+  const handelHomeClickFunc = ()=> {
+    navigate("/landing");
+  }
+
   return (
     <>
       <div className="trailer">
-        {trailer ? <video className='video-trailer' autoPlay muted loop><source src={trailer} type="video/mp4" />Your browser does not support the video tag.</video> : <span>No trailer data</span>}
+        {/* {trailer ? <video className='video-trailer' autoPlay muted loop><source src={trailer} type="video/mp4" />Your browser does not support the video tag.</video> : <span>No trailer data</span>} */}
+        {trailer ? <iframe className='video-trailer' src={trailer} >Your browser does not support the video tag.</iframe> : <span>No trailer data</span>}
       </div>
       <div className="main-book">
         <div className="book-left animate__animated animate__bounceInDown">
@@ -74,6 +81,9 @@ const BookTicket = () => {
           <Button2 clickevent={() => handelclick()}></Button2>
         </div>
         <div className="book-right animate__animated animate__zoomIn">
+          <div className="home-button-div">
+            <Button3 handelHomeClick={()=> handelHomeClickFunc()}/>
+          </div>
           <div className="timming">{timming ? <span>You are booking for {timming}</span> : <span>no timming data</span>}</div>
           <img className="screen-image" src={screen} alt="no image for screen" />
           <div className="bookSeats">

@@ -1,4 +1,4 @@
-.button {
+.button2 {
     display: flex;
     width: 21%;
     margin-top: 3vw;
@@ -49,6 +49,6 @@
     content: 'T';
   }
   
-  .button:hover .box:before {
+  .button2:hover .box:before {
     transform: translateY(0);
   }

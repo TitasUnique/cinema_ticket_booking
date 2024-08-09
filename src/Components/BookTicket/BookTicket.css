@@ -13,7 +13,8 @@
 .video-trailer {
   position: absolute;
   width: 100%;
-  height: auto;
+  height: 125vh;
+  pointer-events: none;
 }
 
 .main-book {
@@ -79,16 +80,22 @@
 }
 
 .book-right {
+  padding-top: 2vw;
   width: 40%;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   gap: 1vw;
 }
 
+.home-button-div {
+  display: flex;
+  width: 90%;
+  justify-content: flex-end;
+}
+
 .timming {
-  margin-top: 6vw;
+  margin-top: 3vw;
   font-family: "Lexend", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
